@@ -1,0 +1,10 @@
+Package: a
+Description-md5: 21262d43a904d77956fa318919f6a15c
+Description-en: Test Package "a"
+ This is a bogus package for the AptPkg::Cache test suite.
+
+Package: b
+Description-md5: d15627f448cd36d2193aafcd416de7eb
+Description-en: Test Package "b"
+ This is a bogus package for the AptPkg::Cache test suite.
+

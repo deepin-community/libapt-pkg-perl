@@ -1,0 +1,33 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Origin: Debian
+Label: Debian
+Suite: stable
+Version: 3.0
+Architectures: i386
+Component: main
+ 08dc45ac51fe6992a4de6f65526217f7             679 main/binary-i386/Packages
+ 14803085e92f2ad8dc7deabf5c79a443             308 main/i18n/Translation-en
+ 969e3637c8147d6bb288cf12832200bc             698 main/source/Sources
+SHA1:
+ e57c2e43e5d8bd51cf58d288b54507abb026a4ea             679 main/binary-i386/Packages
+ c82b1dff73897e185ff27cdc47062efe0df1b12e             308 main/i18n/Translation-en
+ 628cdf8615c970164d29bcf930cfdb8fc7e14dd2             698 main/source/Sources
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+
+iQIcBAEBAgAGBQJRMG7hAAoJEBx8Qe3r3btg0osP/RyZRSDtuTuTtYG1VMvnmVzq
+zG5zf0kIVaQ8f0FTmUQIHdiSpvkKub9r4pReDKMZoxxl8DA4IWG3hiLUgcNwR5IM
+j9QE/twrBDZ/9nWUndN9VlgwlYs446lX9+6D8YfMWE2TJ6eAWdaYLgMof6jGzcZC
+K2ZfxaHUiq3cxKMPtYYVaK8Ew+Uua7TgVQyflnrid1ce1vqvEKLncyFARsn4G07/
+4guKnzW5q8zaZL8Hq/KE3k1kZtV8lp0Os79akRbod+PcVWtRkFEL4DBphpPy10KM
+LOgRgh3fDQ0B5oHN8Z0GuIy1dKCqGVEoWecNFGP/mxUROgvN+7IpWZ5psFGa3gy4
+IShMi/hqj70pvoqy10z6Z6tUAxcv5Z566B65Wnb4gwZSc6WVfANs/g5Fjx+tURlO
+08zSIsYGVswGZLj14Ucm455pSGtEvrFrFnsUj95XXUdw2pTPZ8Yav7tRI0Y7LDeJ
+uJ1Q2cXByCO90kuqn6j5NUpJUld6Ai5p2xnZQPD7C6J1cw22GOeG05F3WguEYNPd
+/xV5l+HmsaYXbpfPUWB69Id1ovAJUQB3mtIRtQBt81fZ/K13rXhT1lqBunn57gyY
+/sUQ5RWHc5DVU+yh+pvHiJdFaJ4I84gVfJgUohRDhdA++ieTqnmmrq92RKwoZS/r
+uyop5ZkZuP1Fj04Ce+u7
+=ht74
+-----END PGP SIGNATURE-----

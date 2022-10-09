@@ -1,0 +1,363 @@
+libapt-pkg-perl (0.1.40) unstable; urgency=medium
+
+  * Simplify Makefile.PL: remove unused "deb" rule and additional files
+    added to "clean" for that rule.
+  * Restore setting of hardening options in debian/rules.
+
+ -- Brendan O'Dea <bod@debian.org>  Wed, 03 Mar 2021 14:28:47 +1100
+
+libapt-pkg-perl (0.1.39) unstable; urgency=medium
+
+  * Oops, t/06_policy.t also loads apt.conf.
+
+ -- Brendan O'Dea <bod@debian.org>  Mon, 15 Feb 2021 15:47:29 +1100
+
+libapt-pkg-perl (0.1.38) unstable; urgency=medium
+
+  * Fix error branch for t/03_cache.t, t/04_source.t.
+  * Skip loading of system apt.conf in tests by setting APT_CONFIG
+    environment variable to the test configuration.  Avoids inheriting
+    unexpected configuration which can cause the tests to fail (e.g. on
+    the buildds).
+
+ -- Brendan O'Dea <bod@debian.org>  Mon, 15 Feb 2021 15:14:27 +1100
+
+libapt-pkg-perl (0.1.37) unstable; urgency=medium
+
+  * Fix a typo in AptPkg::Cache (s/descrie/describe/).
+  * Update copyright years.
+  * Convert debian/copyright to Debian machine readable format (dep5).
+  * Update to debhelper v13.
+  * Update standards version to 4.5.1.
+  * Add build dependency on the current apt and remove handling for the
+    previous ABI.  Bump VERSION/XS_VERSION.
+
+ -- Brendan O'Dea <bod@debian.org>  Mon, 15 Feb 2021 12:03:46 +1100
+
+libapt-pkg-perl (0.1.36) unstable; urgency=medium
+
+  * Switch to range-based for loops.
+  * Updates for apt 1.9.0, with thanks to Julian Andres Klode for the
+    detailed report (closes: #930653).
+    - Remove obsolete IsOk method from PkgFileIterator.
+    - Remove obsolete GetMatch method from Policy.
+    - Use string and vector from namespace std explicitly (previously
+      picked up through a similar declaration in an apt-pkg header).
+    - Remove obsolete GetPriority(Package) method from Policy.
+    - Support old ABI for AptPkg::Source->find Files attribute.
+
+ -- Brendan O'Dea <bod@debian.org>  Tue, 18 Jun 2019 13:14:33 +1000
+
+libapt-pkg-perl (0.1.35) unstable; urgency=medium
+
+  * Remove trailing spaces from changelog [lintian].
+  * Reference version-specific /usr/share/common-licenses/GPL-3 in
+    copyright rather than the unversioned GPL symlink [lintian].
+  * Fix doc spelling errors [lintian].
+
+ -- Brendan O'Dea <bod@debian.org>  Mon, 23 Apr 2018 20:53:47 +1000
+
+libapt-pkg-perl (0.1.34) unstable; urgency=medium
+
+  * Update debhelper version in Build-Depends.
+  * Move repository to salsa.debian.org and update Vcs control fields.
+  * Update standards version to 4.1.4.
+
+ -- Brendan O'Dea <bod@debian.org>  Tue, 17 Apr 2018 22:54:17 +1000
+
+libapt-pkg-perl (0.1.33) unstable; urgency=medium
+
+  * Fix EXTEND size for Files field of source records: was extending by
+    four rather than two.  Presumably a mistake from when source records
+    were added.  It seems likely that I was initally going to add Files
+    and Files2 before realising that Files2 was a superset of Files.
+  * Update debian policy version to 4.0.1.
+  * Use debhelper v10.
+  * Add AsStr property for sources (closes: #872391).
+  * Update Vcs-Browser.
+
+ -- Brendan O'Dea <bod@debian.org>  Sat, 19 Aug 2017 00:19:59 +1000
+
+libapt-pkg-perl (0.1.32) unstable; urgency=medium
+
+  * Update copyright year.
+
+ -- Brendan O'Dea <bod@debian.org>  Sun, 26 Mar 2017 20:47:23 +1100
+
+libapt-pkg-perl (0.1.31) unstable; urgency=medium
+
+  * Add support for triggers-pending, triggers-awaited states.  Thanks to
+    Michael Deegan for reporting (closes: #851951).
+  * Also add support for Breaks and Enhances.
+
+ -- Brendan O'Dea <bod@debian.org>  Sun, 26 Mar 2017 20:20:34 +1100
+
+libapt-pkg-perl (0.1.30) unstable; urgency=medium
+
+  * Use dpkg-buildflags when building (closes: #841702).
+  * Fix t/03_cache.t: status path in files may now be absolute.
+  * AptPkg::Source now requires _system to be initialised.
+  * Multi-Arch now uses "No" rather than "None".
+  * Use FileSize rather than deprecated Size attribute (although the Perl
+    API remains unchanged: the hash key is still "Size").
+  * Remove use of deprecated Section attribute, taking the value from
+    VersionList.
+  * Include all included hashes, and stop using deprecated MD5Hash
+    attribute.
+  * Update XS version and copyright year.
+  * Update debhelper compatibity to v9.
+  * Remove some compiler warnings.
+
+ -- Brendan O'Dea <bod@debian.org>  Sun, 23 Oct 2016 20:58:15 +1100
+
+libapt-pkg-perl (0.1.29) unstable; urgency=low
+
+  * Update release years in debian/copyright.
+  * Update Copyright to GPLv3.
+  * Re-instate accidentally dropped Size and InstalledSize fields, and
+    update test to ensure they exist.  Thanks to Kevin Ryde for reporting
+    the issue and for spelunking the git repository to find the problem
+    change (closes: #712613).
+
+ -- Brendan O'Dea <bod@debian.org>  Wed, 19 Jun 2013 00:31:45 +1000
+
+libapt-pkg-perl (0.1.28) unstable; urgency=low
+
+  * Whitespace cleanup.
+  * More updates for multi-arch support:
+    - Add is_multi_arch and native_arch methods to AptPkg::Cache.
+    - Add FullName, ShortName and Arch fields to AptPkg::Cache::Package.
+    - Change AptPkg::Cache::Iter to return FullName (including arch)
+      rather than Name.
+    - Update cache test to check for new fields.
+    Thanks to Andrew Ayer for identifying the problem (closes: #707142).
+  * Bump file versions.
+
+ -- Brendan O'Dea <bod@debian.org>  Sat, 11 May 2013 00:25:16 +1000
+
+libapt-pkg-perl (0.1.27) unstable; urgency=low
+
+  * Update test files with to include multi-arch, translations and inline
+    signed Release files.
+  * Remove very obsolete, rarely updated README file.
+  * Add support for translated descriptions (closes: #701899).
+
+ -- Brendan O'Dea <bod@debian.org>  Fri, 01 Mar 2013 15:28:53 +1100
+
+libapt-pkg-perl (0.1.26) unstable; urgency=low
+
+  * Update MANIFEST.
+  * Switch to non-deprecated pkgCacheFile::Open method.
+  * Remove old CVS keywords.
+  * Drop Architecture from pkgCache::PkgFileIterator as this field is no
+    longer populated by debListParser::LoadReleaseInfo().
+
+ -- Brendan O'Dea <bod@debian.org>  Tue, 27 Mar 2012 22:41:35 +1100
+
+libapt-pkg-perl (0.1.25) unstable; urgency=low
+
+  * Update Vcs-Git and Vcs-Browser fields.
+  * Update standards-version to 3.9.2:
+    - switch to debhelper v8, adding debian/compat
+    - use dh_prep rather than dh_clean -k
+    - add ${misc:Depends}
+    - add build-arch and build-indep targets
+    - conditionally "make realclean" rather than supressing errors
+    - use DESTDIR, rather than PREFIX in install rules
+    - switch to "3.0 (Native)" source format
+  * Apply patch from Kevin Lyda to fix a number of misspellings in the
+    comments and documentation.
+
+ -- Brendan O'Dea <bod@debian.org>  Mon, 03 Oct 2011 21:05:12 +1100
+
+libapt-pkg-perl (0.1.24) unstable; urgency=low
+
+  * Fix Vcs-Browser control field.
+  * Create empty t/cache/etc/preferences.d directory to hush noisy test.
+
+ -- Brendan O'Dea <bod@debian.org>  Tue, 04 Aug 2009 23:32:26 +1000
+
+libapt-pkg-perl (0.1.23) unstable; urgency=low
+
+  * Move repository to git://git.debian.org/users/bod/libapt-pkg-perl.git
+  * Apply patch from Kevin Ryde to add Size/InstalledSize (closes: #522835).
+  * Use pre-increment for iterator objects.
+
+ -- Brendan O'Dea <bod@debian.org>  Fri, 17 Apr 2009 03:09:36 +1000
+
+libapt-pkg-perl (0.1.22) unstable; urgency=low
+
+  * Fix typo in AptPkg::Cache::Version DependsList docs (closes: #461553).
+
+ -- Brendan O'Dea <bod@debian.org>  Wed, 06 Feb 2008 00:56:42 +1100
+
+libapt-pkg-perl (0.1.21) unstable; urgency=low
+
+  * Remove obsolete _iter method from AptPkg/hash.pm .
+  * Use typemap for methods returning objects rather than calling
+    sv_setref_pv() manually.
+
+  * Tidy up parented<> class handling.
+  * Implement pkgPolicy interface as AptPkg::Policy (closes: #243125).
+
+ -- Brendan O'Dea <bod@debian.org>  Sun, 17 Jun 2007 21:57:35 +1000
+
+libapt-pkg-perl (0.1.20) unstable; urgency=low
+
+  * Use $(CURDIR) [make] rather than $(PWD) [sh] in debian/rules
+    (closes: #365534).
+
+ -- Brendan O'Dea <bod@debian.org>  Mon,  1 May 2006 23:34:08 +1000
+
+libapt-pkg-perl (0.1.19) unstable; urgency=low
+
+  * Ensure that parent objects persist for the life of the child.
+    Thanks to Niko Tyni for identifying the problem (closes: #317058).
+
+ -- Brendan O'Dea <bod@debian.org>  Sun, 30 Apr 2006 02:30:38 +1000
+
+libapt-pkg-perl (0.1.18) unstable; urgency=low
+
+  * Break reference loop in AptPkg::hash (closes: #323845).
+  * Rebuild against current g++ and libapt-pkg-dev (closes: #335211,
+    #336686, et al.).
+
+ -- Brendan O'Dea <bod@debian.org>  Sun, 13 Nov 2005 18:36:24 +1100
+
+libapt-pkg-perl (0.1.17) unstable; urgency=low
+
+  * Re-build for apt 0.6.40.1.
+  * Auto-load ::System and ::Version (closes: #316768).
+  * typemap: require object instances, not classes (closes: #321303).
+
+ -- Brendan O'Dea <bod@debian.org>  Mon,  8 Aug 2005 00:03:14 +1000
+
+libapt-pkg-perl (0.1.16) unstable; urgency=low
+
+  * Re-build for apt 0.6.39.
+
+ -- Brendan O'Dea <bod@debian.org>  Tue,  2 Aug 2005 20:54:45 +1000
+
+libapt-pkg-perl (0.1.15) unstable; urgency=low
+
+  * Add SourcePkg to $cache->lookup docs.
+
+ -- Brendan O'Dea <bod@debian.org>  Sat,  2 Jul 2005 00:48:47 +1000
+
+libapt-pkg-perl (0.1.14) unstable; urgency=low
+
+  * Build with apt 0.6.
+  * Create new test Releases file.
+
+ -- Brendan O'Dea <bod@debian.org>  Tue, 28 Jun 2005 20:19:22 +1000
+
+libapt-pkg-perl (0.1.13) unstable; urgency=low
+
+  * Fix ordering of dh_fixperms/dh_strip such that strip works.
+  * Fix examples/apt-version argument parsing (closes: #276254).
+  * Remove requirement for apt-pkg/deblistparser.h to allow for
+    building on rpm-based systems.  Allow for rpm in t/01_system.t .
+
+ -- Brendan O'Dea <bod@debian.org>  Thu, 14 Oct 2004 11:36:07 +1000
+
+libapt-pkg-perl (0.1.12-0.1) unstable; urgency=high
+
+  * (NMU because I could not reach the maintainer)
+    Removed perl dependency. This way, localization-config can be
+    included on debian-installer netinst ISO without pulling all the perl
+    stuff. (~100KB dependency instead of ~5MB).
+
+ -- Konstantinos Margaritis <markos@debian.org>  Wed, 29 Sep 2004 11:11:05 +0300
+
+libapt-pkg-perl (0.1.12) unstable; urgency=low
+
+  * Use enumerated constants in a numeric context for SelectedState,
+    CurrentState and InstState.  Provide a string version for
+    BuildDepends operators.  Closes: #227642.
+
+ -- Brendan O'Dea <bod@debian.org>  Sun, 20 Jun 2004 22:19:46 +1000
+
+libapt-pkg-perl (0.1.11) unstable; urgency=low
+
+  * AptPkg::Cache::PkgFile lookup method now correctly returns undef
+    when passed a package name that has no available versions (closes:
+    #186104).
+
+ -- Brendan O'Dea <bod@debian.org>  Thu, 25 Sep 2003 01:11:45 +1000
+
+libapt-pkg-perl (0.1.10) unstable; urgency=low
+
+  * Fix typo in AptPkg::Version docs (closes: #196551).
+  * Add "Priority" key to AptPkg::Cache::Version hashes.
+
+ -- Brendan O'Dea <bod@debian.org>  Sat, 19 Jul 2003 13:59:39 +1000
+
+libapt-pkg-perl (0.1.9) unstable; urgency=low
+
+  * Fix SEGV using AptPkg::Source (closes: #193052).
+  * Automagically use AptPkg::Config, AptPkg::System and initialise
+    $_config and $_system where required.
+
+  * Add tests for AptPkg::Source and auto-initialisation.
+
+ -- Brendan O'Dea <bod@debian.org>  Mon,  9 Jun 2003 22:27:09 +1000
+
+libapt-pkg-perl (0.1.8) unstable; urgency=low
+
+  * Add version to libapt-pkg-dev build dependency.
+  * Change section to "perl".
+
+ -- Brendan O'Dea <bod@debian.org>  Sat, 10 May 2003 10:14:23 +1000
+
+libapt-pkg-perl (0.1.7) unstable; urgency=low
+
+  * Update BuildDepends parameters for apt 0.5.5 .
+  * Rebuild for libapt-pkg 0.5.5 / c++ 3.2 (closes #192384).
+  * Minor doc additions to AptPkg(3pm).
+
+ -- Brendan O'Dea <bod@debian.org>  Sat, 10 May 2003 09:45:42 +1000
+
+libapt-pkg-perl (0.1.6) unstable; urgency=low
+
+  * Add source package handling (AptPkg::Source).
+
+ -- Brendan O'Dea <bod@debian.org>  Mon,  5 Aug 2002 20:53:04 +1000
+
+libapt-pkg-perl (0.1.5) unstable; urgency=low
+
+  * Build against perl 5.8.0 .
+  * Correct "ApkPkg" typo and document the AptPkg::Cache get, exists
+    and keys methods (closes: #147963).
+
+ -- Brendan O'Dea <bod@debian.org>  Mon, 29 Jul 2002 08:55:40 +1000
+
+libapt-pkg-perl (0.1.4) unstable; urgency=low
+
+  * Correct documentation (File attribute of AptPkg::Cache::VerFile).
+  * Add examples/apt-{version,cache} scripts (closes: #128439).
+
+ -- Brendan O'Dea <bod@debian.org>  Thu, 10 Jan 2002 19:06:47 +1100
+
+libapt-pkg-perl (0.1.3) unstable; urgency=low
+
+  * Fix typo in package description (closes: #128213).
+
+ -- Brendan O'Dea <bod@debian.org>  Tue,  8 Jan 2002 16:21:29 +1100
+
+libapt-pkg-perl (0.1.2) unstable; urgency=low
+
+  * Include constants for pkgCache enumerations.
+  * Add CompTypeDeb dependency attribute.
+  * Provide numeric values for DepType, CompType and Flags.
+
+ -- Brendan O'Dea <bod@debian.org>  Mon,  7 Jan 2002 19:57:54 +1100
+
+libapt-pkg-perl (0.1.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Brendan O'Dea <bod@debian.org>  Thu,  3 Jan 2002 23:43:08 +1100
+
+Local variables:
+mode: debian-changelog
+End:

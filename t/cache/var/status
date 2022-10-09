@@ -1,0 +1,12 @@
+Package: b
+Status: install ok triggers-pending
+Priority: optional
+Section: test
+Installed-Size: 290
+Maintainer: Brendan O'Dea <bod@debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Version: 0.2-1
+Description: Test Package "b"
+ This is a bogus package for the AptPkg::Cache test suite.
+

@@ -1,0 +1,44 @@
+Package: a
+Priority: optional
+Section: test
+Installed-Size: 300
+Maintainer: Brendan O'Dea <bod@debian.org>
+Architecture: i386
+Version: 0.5
+Depends: b (>= 0.3-2)
+Conflicts: foo
+Breaks: bar
+Enhances: baz
+Provides: quux
+Filename: pool/main/a/a/a_0.5_i386.deb
+Size: 30000
+MD5sum: 0123456789abcdef0123456789abcdef
+Description: Test Package "a"
+Description-md5: 21262d43a904d77956fa318919f6a15c
+
+Package: b
+Priority: optional
+Section: test
+Installed-Size: 300
+Maintainer: Brendan O'Dea <bod@debian.org>
+Architecture: i386
+Version: 0.3-2
+Filename: pool/main/b/b/b_0.3-2_i386.deb
+Size: 30000
+MD5sum: 0123456789abcdef0123456789abcdef
+Description: Test Package "b"
+Description-md5: d15627f448cd36d2193aafcd416de7eb
+
+Package: c
+Priority: optional
+Section: test
+Installed-Size: 300
+Maintainer: Brendan O'Dea <bod@debian.org>
+Architecture: i386
+Version: 0.2-1
+Filename: pool/main/c/c/c_0.2-1_i386.deb
+Size: 30000
+MD5sum: 0123456789abcdef0123456789abcdef
+Description: Test Package "c"
+Description-md5: 3786aae0160b7224cd23c3d6126fe037
+
